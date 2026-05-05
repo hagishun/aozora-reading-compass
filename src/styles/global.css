@@ -1,0 +1,79 @@
+/* グローバル基礎スタイル: 全ページ共通の見た目 */
+
+:root {
+  --bg: #ffffff;
+  --fg: #222;
+  --fg-muted: #666;
+  --fg-faint: #888;
+  --border: #ccc;
+  --border-soft: #e5e5e5;
+  --surface: #fafafa;
+  --surface-soft: #f0f0f0;
+  --accent: #333;
+  --accent-fg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #ddd;
+    --fg-muted: #aaa;
+    --fg-faint: #888;
+    --border: #444;
+    --border-soft: #333;
+    --surface: #222;
+    --surface-soft: #2a2a2a;
+    --accent: #ddd;
+    --accent-fg: #1a1a1a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+h1 {
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+}
+
+/* 共通ボタン */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--fg);
+}
+
+.btn-secondary:hover {
+  background: var(--surface);
+}

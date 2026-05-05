@@ -1,0 +1,97 @@
+---
+// SSRページ: ?state=xxx を読み、合致する作品からランダムに1冊出す
+// prerender = false (デフォルト) → リクエスト時に Worker で動く
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadWorks } from '../lib/works.js';
+import type { Work } from '../types/work.js';
+
+const validStates = ['recovery', 'thinking', 'stimulus', 'quiet'] as const;
+type State = (typeof validStates)[number];
+
+const stateParam = Astro.url.searchParams.get('state');
+const state = (validStates as readonly string[]).includes(stateParam ?? '')
+  ? (stateParam as State)
+  : null;
+
+let pick: Work | null = null;
+let candidatesCount = 0;
+
+if (state) {
+  const all = loadWorks();
+  const candidates = all.filter(w => w.states.includes(state));
+  candidatesCount = candidates.length;
+  if (candidates.length > 0) {
+    pick = candidates[Math.floor(Math.random() * candidates.length)];
+  }
+}
+
+const stateLabels: Record<State, string> = {
+  recovery: '回復したい',
+  thinking: '考えたい',
+  stimulus: '刺激がほしい',
+  quiet: '静かに読みたい',
+};
+---
+
+<BaseLayout title="今日の一冊 - Aozora Reading Compass">
+  <a class="back" href="/">← 戻る</a>
+
+  {!state && (
+    <p class="error">気分が指定されていません。<a href="/">入口へ戻る</a>。</p>
+  )}
+
+  {state && !pick && (
+    <p class="error">「{stateLabels[state]}」に合う作品がまだ登録されていません。</p>
+  )}
+
+  {state && pick && (
+    <>
+      <p class="mood">{stateLabels[state]} 気分のあなたに</p>
+      <h1>{pick.title}</h1>
+      <p class="author">{pick.author}</p>
+      <p class="meta">読了目安 {pick.length_min} 分 / {candidatesCount} 作品から選びました</p>
+
+      {pick.themes.length > 0 && (
+        <div class="themes">
+          {pick.themes.map(t => <span class="theme">{t}</span>)}
+        </div>
+      )}
+
+      {pick.note && <p class="note">{pick.note}</p>}
+
+      <div class="actions">
+        <a class="btn btn-primary" href={pick.aozora_url} target="_blank" rel="noopener">青空文庫で読む →</a>
+        <a class="btn btn-secondary" href={`/pick?state=${state}`}>もう一冊</a>
+      </div>
+    </>
+  )}
+</BaseLayout>
+
+<style>
+  .back { color: var(--fg-faint); text-decoration: none; font-size: .9rem; }
+  .back:hover { color: var(--fg); }
+  .mood { color: var(--fg-muted); margin: 2rem 0 .5rem; font-size: .9rem; }
+  h1 { font-size: 1.8rem; margin: .3rem 0; }
+  .author { color: var(--fg-muted); margin-bottom: 1.5rem; }
+  .meta { color: var(--fg-faint); font-size: .9rem; margin-bottom: 2rem; }
+  .themes { margin: 1rem 0; }
+  .theme {
+    display: inline-block;
+    padding: .15rem .6rem;
+    margin-right: .4rem;
+    background: var(--surface-soft);
+    border-radius: 4px;
+    font-size: .85rem;
+    color: var(--fg-muted);
+  }
+  .note {
+    color: var(--fg-muted);
+    font-size: .95rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-left: 3px solid var(--border);
+    margin: 1.5rem 0;
+  }
+  .actions { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .error { color: var(--fg-faint); margin: 3rem 0; }
+</style>

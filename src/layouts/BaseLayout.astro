@@ -1,0 +1,23 @@
+---
+// 全ページ共通の外枠 (html/head/body)
+// 子要素は <slot /> に差し込まれる
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Aozora Reading Compass' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
