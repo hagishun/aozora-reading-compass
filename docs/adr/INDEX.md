@@ -9,6 +9,8 @@
 | ID | タイトル | ステータス | 関連handbook原則 |
 |---|---|---|---|
 | [ADR-0001](ADR-0001-use-aozora-csv-for-grounding.md) | 青空文庫の公開CSVをLLM推薦のgrounding sourceとする | Accepted | [llm-grounding](https://github.com/hagishun/hagishun-handbook/blob/main/principles/llm-grounding.md) |
+| [ADR-0002](ADR-0002-serverless-llm-recommendation.md) | 推薦経路をサーバーレス関数経由のLLM呼び出しとする | Accepted | [llm-grounding](https://github.com/hagishun/hagishun-handbook/blob/main/principles/llm-grounding.md) |
+| [ADR-0003](ADR-0003-tech-stack.md) | 技術スタックを Astro + Cloudflare Pages/Workers/Workers AI とする | Accepted | — |
 
 ## テンプレート
 
