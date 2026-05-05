@@ -15,3 +15,18 @@ venv/
 
 # Logs
 *.log
+
+# Node
+node_modules/
+
+# Astro
+dist/
+.astro/
+
+# Cloudflare / Wrangler
+.wrangler/
+
+# Environment variables
+.env
+.env.*
+!.env.example

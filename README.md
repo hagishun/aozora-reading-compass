@@ -71,6 +71,22 @@
 - [`docs/roadmap.md`](docs/roadmap.md) — Phase 0〜5+ の実装順序
 - [`docs/adr/INDEX.md`](docs/adr/INDEX.md) — 個別の意思決定記録
 
+## 開発手順
+
+```bash
+# 依存パッケージのインストール
+npm install
+
+# 開発サーバー起動（http://localhost:4321）
+npm run dev
+
+# 本番ビルド
+npm run build
+
+# ビルド結果のプレビュー
+npm run preview
+```
+
 ## ライセンス
 
 [MIT](LICENSE)
