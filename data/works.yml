@@ -93,7 +93,7 @@ works:
     length_min: 15
     summary_ok: true
 
-  - id: rekishi
+  - id: remon
     title: 檸檬
     author: 梶井基次郎
     aozora_url: https://www.aozora.gr.jp/cards/000074/card424.html
@@ -105,7 +105,7 @@ works:
   - id: sakura-no-mori
     title: 桜の樹の下には
     author: 梶井基次郎
-    aozora_url: https://www.aozora.gr.jp/cards/000074/card4870.html
+    aozora_url: https://www.aozora.gr.jp/cards/000074/card427.html
     states: [stimulus, thinking]
     themes: [自然, 死生観]
     length_min: 5
@@ -123,7 +123,7 @@ works:
   - id: jusan-ya
     title: 十三夜
     author: 樋口一葉
-    aozora_url: https://www.aozora.gr.jp/cards/000064/card393.html
+    aozora_url: https://www.aozora.gr.jp/cards/000064/card56040.html
     states: [thinking, quiet]
     themes: [人間関係, 月]
     length_min: 30
@@ -141,7 +141,7 @@ works:
   - id: chichi-kaeru
     title: 父帰る
     author: 菊池寛
-    aozora_url: https://www.aozora.gr.jp/cards/000083/card201.html
+    aozora_url: https://www.aozora.gr.jp/cards/000083/card502.html
     states: [thinking]
     themes: [家族, 赦し]
     length_min: 25
@@ -175,24 +175,6 @@ works:
     length_min: 30
     summary_ok: true
 
-  - id: izu-no-odoriko
-    title: 伊豆の踊子
-    author: 川端康成
-    aozora_url: https://www.aozora.gr.jp/cards/001383/card55211.html
-    states: [recovery, quiet]
-    themes: [旅, 出会い]
-    length_min: 45
-    summary_ok: true
-
-  - id: ginnohaji
-    title: 銀の匙
-    author: 中勘助
-    aozora_url: https://www.aozora.gr.jp/cards/000310/card1248.html
-    states: [recovery, quiet]
-    themes: [子ども, 記憶]
-    length_min: 120
-    summary_ok: true
-
   - id: bocchan
     title: 坊っちゃん
     author: 夏目漱石
@@ -211,7 +193,7 @@ works:
     length_min: 150
     summary_ok: true
 
-  - id: nezumi-kozou
+  - id: nezumi
     title: 鼠
     author: 森鴎外
     aozora_url: https://www.aozora.gr.jp/cards/000129/card692.html
@@ -247,7 +229,7 @@ works:
     length_min: 15
     summary_ok: true
 
-  - id: hoshi-no-ouji
+  - id: kaze-no-matasaburo
     title: 風の又三郎
     author: 宮沢賢治
     aozora_url: https://www.aozora.gr.jp/cards/000081/card1934.html
@@ -263,15 +245,6 @@ works:
     states: [recovery, quiet]
     themes: [信念, 短詩]
     length_min: 3
-    summary_ok: true
-
-  - id: chishima
-    title: 城の崎にて
-    author: 志賀直哉
-    aozora_url: https://www.aozora.gr.jp/cards/001383/card55817.html
-    states: [quiet, thinking]
-    themes: [生と死, 自然]
-    length_min: 20
     summary_ok: true
 
   - id: kani-kosen
