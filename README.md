@@ -65,6 +65,12 @@
 
 このリポジトリは構想段階の実験プロジェクトです。READMEと最小データのみが存在し、コード・UIはまだありません。「AIとOSSで文化資産へのアクセスを少しだけ滑らかにする」という問いへの応答として、ゆっくり育てていきます。
 
+設計の全体像と実装順序は以下を参照:
+
+- [`docs/architecture.md`](docs/architecture.md) — システム構成・データフロー・無料枠の境界
+- [`docs/roadmap.md`](docs/roadmap.md) — Phase 0〜5+ の実装順序
+- [`docs/adr/INDEX.md`](docs/adr/INDEX.md) — 個別の意思決定記録
+
 ## ライセンス
 
 [MIT](LICENSE)
