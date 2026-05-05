@@ -1,0 +1,52 @@
+name: Daily Pick
+
+# 「今日の一冊」を data/works.yml から擬似ランダムに選び、
+# README の指定セクションを毎日更新するワークフロー(雛形)。
+#
+# まだコードは存在しないため、現状はワークフロー定義のみで、
+# 実装(scripts/daily_pick.py 等)は今後追加予定。
+#
+# 動作させるには:
+#   1. scripts/daily_pick.py を実装し、works.yml から1作品を選んで
+#      README.md の <!-- daily-pick:start --> ... <!-- daily-pick:end -->
+#      の間を書き換える
+#   2. 下のコメントアウトを外す
+
+on:
+  schedule:
+    # 毎日 JST 07:00 (UTC 22:00) に実行
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # - name: Install deps
+      #   run: pip install pyyaml
+
+      # - name: Pick today's work
+      #   run: python scripts/daily_pick.py
+
+      # - name: Commit if changed
+      #   run: |
+      #     if [[ -n "$(git status --porcelain)" ]]; then
+      #       git config user.name  "github-actions[bot]"
+      #       git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #       git add README.md
+      #       git commit -m "chore: update daily pick"
+      #       git push
+      #     fi
+
+      - name: Placeholder (no script yet)
+        run: echo "daily_pick.py is not implemented yet."

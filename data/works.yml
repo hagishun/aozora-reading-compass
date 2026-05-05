@@ -1,0 +1,293 @@
+# Aozora Reading Compass - 初期作品リスト
+#
+# このファイルは「今日の一冊」推薦のための作品メタデータです。
+# 本文は含めません。アクセスは aozora_url 経由で青空文庫へ誘導します。
+#
+# フィールド:
+#   id:           安定したスラッグ (kebab-case)
+#   title:        作品名
+#   author:       著者名
+#   aozora_url:   青空文庫の作品ページURL (本文はここで読む)
+#   states:       合う状態 (recovery / thinking / stimulus / quiet)
+#   themes:       テーマタグ
+#   length_min:   読了目安(分)
+#   summary_ok:   AIによる短い紹介文の生成を許可するか (本文要約ではなく雰囲気紹介)
+#   note:         一言メモ (任意)
+#
+# 注意: aozora_url は青空文庫サイトの構造変更で変わる可能性があります。
+#       初期データはサンプルとして著名作家の代表的短編を中心に選定しています。
+#       実運用前に各URLの到達性を必ず確認してください。
+
+works:
+  - id: yumejuya
+    title: 夢十夜
+    author: 夏目漱石
+    aozora_url: https://www.aozora.gr.jp/cards/000148/card799.html
+    states: [quiet, thinking]
+    themes: [夢, 死生観, 幻想]
+    length_min: 30
+    summary_ok: true
+    note: 短い夢のスケッチ十篇。一篇ずつ読める。
+
+  - id: kokoro
+    title: こころ
+    author: 夏目漱石
+    aozora_url: https://www.aozora.gr.jp/cards/000148/card773.html
+    states: [thinking]
+    themes: [人間関係, 罪と赦し]
+    length_min: 240
+    summary_ok: true
+    note: 長編。腰を据えて読む日に。
+
+  - id: rashomon
+    title: 羅生門
+    author: 芥川龍之介
+    aozora_url: https://www.aozora.gr.jp/cards/000879/card127.html
+    states: [stimulus, thinking]
+    themes: [生と死, 倫理]
+    length_min: 20
+    summary_ok: true
+
+  - id: kumonoito
+    title: 蜘蛛の糸
+    author: 芥川龍之介
+    aozora_url: https://www.aozora.gr.jp/cards/000879/card92.html
+    states: [quiet, thinking]
+    themes: [因果, 救済]
+    length_min: 10
+    summary_ok: true
+
+  - id: toshishun
+    title: 杜子春
+    author: 芥川龍之介
+    aozora_url: https://www.aozora.gr.jp/cards/000879/card43014.html
+    states: [recovery, thinking]
+    themes: [人間性, 試練]
+    length_min: 25
+    summary_ok: true
+
+  - id: ginga-tetsudo
+    title: 銀河鉄道の夜
+    author: 宮沢賢治
+    aozora_url: https://www.aozora.gr.jp/cards/000081/card456.html
+    states: [quiet, recovery]
+    themes: [旅, 死生観, 友情]
+    length_min: 90
+    summary_ok: true
+
+  - id: chumon-no-ooi
+    title: 注文の多い料理店
+    author: 宮沢賢治
+    aozora_url: https://www.aozora.gr.jp/cards/000081/card43754.html
+    states: [stimulus]
+    themes: [風刺, 自然]
+    length_min: 15
+    summary_ok: true
+
+  - id: yodaka-no-hoshi
+    title: よだかの星
+    author: 宮沢賢治
+    aozora_url: https://www.aozora.gr.jp/cards/000081/card473.html
+    states: [quiet, recovery]
+    themes: [孤独, 救済]
+    length_min: 15
+    summary_ok: true
+
+  - id: rekishi
+    title: 檸檬
+    author: 梶井基次郎
+    aozora_url: https://www.aozora.gr.jp/cards/000074/card424.html
+    states: [stimulus, quiet]
+    themes: [都市, 感覚]
+    length_min: 15
+    summary_ok: true
+
+  - id: sakura-no-mori
+    title: 桜の樹の下には
+    author: 梶井基次郎
+    aozora_url: https://www.aozora.gr.jp/cards/000074/card4870.html
+    states: [stimulus, thinking]
+    themes: [自然, 死生観]
+    length_min: 5
+    summary_ok: true
+
+  - id: takekurabe
+    title: たけくらべ
+    author: 樋口一葉
+    aozora_url: https://www.aozora.gr.jp/cards/000064/card389.html
+    states: [thinking]
+    themes: [子ども, 都市, 季節]
+    length_min: 60
+    summary_ok: true
+
+  - id: jusan-ya
+    title: 十三夜
+    author: 樋口一葉
+    aozora_url: https://www.aozora.gr.jp/cards/000064/card393.html
+    states: [thinking, quiet]
+    themes: [人間関係, 月]
+    length_min: 30
+    summary_ok: true
+
+  - id: gongitsune
+    title: ごん狐
+    author: 新美南吉
+    aozora_url: https://www.aozora.gr.jp/cards/000121/card628.html
+    states: [recovery, quiet]
+    themes: [動物, 後悔]
+    length_min: 15
+    summary_ok: true
+
+  - id: chichi-kaeru
+    title: 父帰る
+    author: 菊池寛
+    aozora_url: https://www.aozora.gr.jp/cards/000083/card201.html
+    states: [thinking]
+    themes: [家族, 赦し]
+    length_min: 25
+    summary_ok: true
+
+  - id: ningen-shikkaku
+    title: 人間失格
+    author: 太宰治
+    aozora_url: https://www.aozora.gr.jp/cards/000035/card301.html
+    states: [thinking]
+    themes: [自己, 孤独]
+    length_min: 180
+    summary_ok: true
+    note: しんどい日には選ばない方がよい。
+
+  - id: hashire-melos
+    title: 走れメロス
+    author: 太宰治
+    aozora_url: https://www.aozora.gr.jp/cards/000035/card1567.html
+    states: [stimulus, recovery]
+    themes: [友情, 信義]
+    length_min: 25
+    summary_ok: true
+
+  - id: fugaku-hyakkei
+    title: 富嶽百景
+    author: 太宰治
+    aozora_url: https://www.aozora.gr.jp/cards/000035/card1564.html
+    states: [recovery, quiet]
+    themes: [自然, 旅]
+    length_min: 30
+    summary_ok: true
+
+  - id: izu-no-odoriko
+    title: 伊豆の踊子
+    author: 川端康成
+    aozora_url: https://www.aozora.gr.jp/cards/001383/card55211.html
+    states: [recovery, quiet]
+    themes: [旅, 出会い]
+    length_min: 45
+    summary_ok: true
+
+  - id: ginnohaji
+    title: 銀の匙
+    author: 中勘助
+    aozora_url: https://www.aozora.gr.jp/cards/000310/card1248.html
+    states: [recovery, quiet]
+    themes: [子ども, 記憶]
+    length_min: 120
+    summary_ok: true
+
+  - id: bocchan
+    title: 坊っちゃん
+    author: 夏目漱石
+    aozora_url: https://www.aozora.gr.jp/cards/000148/card752.html
+    states: [stimulus, recovery]
+    themes: [青春, 都市と地方]
+    length_min: 120
+    summary_ok: true
+
+  - id: kusamakura
+    title: 草枕
+    author: 夏目漱石
+    aozora_url: https://www.aozora.gr.jp/cards/000148/card776.html
+    states: [quiet, thinking]
+    themes: [自然, 芸術]
+    length_min: 150
+    summary_ok: true
+
+  - id: nezumi-kozou
+    title: 鼠
+    author: 森鴎外
+    aozora_url: https://www.aozora.gr.jp/cards/000129/card692.html
+    states: [thinking]
+    themes: [心情, 短編]
+    length_min: 20
+    summary_ok: true
+
+  - id: takasebune
+    title: 高瀬舟
+    author: 森鴎外
+    aozora_url: https://www.aozora.gr.jp/cards/000129/card691.html
+    states: [thinking]
+    themes: [倫理, 死生観]
+    length_min: 25
+    summary_ok: true
+
+  - id: yabu-no-naka
+    title: 藪の中
+    author: 芥川龍之介
+    aozora_url: https://www.aozora.gr.jp/cards/000879/card179.html
+    states: [stimulus, thinking]
+    themes: [真実, 視点]
+    length_min: 20
+    summary_ok: true
+
+  - id: hana
+    title: 鼻
+    author: 芥川龍之介
+    aozora_url: https://www.aozora.gr.jp/cards/000879/card42.html
+    states: [stimulus]
+    themes: [自意識, 風刺]
+    length_min: 15
+    summary_ok: true
+
+  - id: hoshi-no-ouji
+    title: 風の又三郎
+    author: 宮沢賢治
+    aozora_url: https://www.aozora.gr.jp/cards/000081/card1934.html
+    states: [stimulus, quiet]
+    themes: [子ども, 自然, 風]
+    length_min: 60
+    summary_ok: true
+
+  - id: ame-nimo-makezu
+    title: 雨ニモマケズ
+    author: 宮沢賢治
+    aozora_url: https://www.aozora.gr.jp/cards/000081/card45630.html
+    states: [recovery, quiet]
+    themes: [信念, 短詩]
+    length_min: 3
+    summary_ok: true
+
+  - id: chishima
+    title: 城の崎にて
+    author: 志賀直哉
+    aozora_url: https://www.aozora.gr.jp/cards/001383/card55817.html
+    states: [quiet, thinking]
+    themes: [生と死, 自然]
+    length_min: 20
+    summary_ok: true
+
+  - id: kani-kosen
+    title: 蟹工船
+    author: 小林多喜二
+    aozora_url: https://www.aozora.gr.jp/cards/000156/card1465.html
+    states: [stimulus, thinking]
+    themes: [社会, 労働]
+    length_min: 120
+    summary_ok: true
+
+  - id: kappa
+    title: 河童
+    author: 芥川龍之介
+    aozora_url: https://www.aozora.gr.jp/cards/000879/card69.html
+    states: [stimulus, thinking]
+    themes: [風刺, 幻想]
+    length_min: 60
+    summary_ok: true
