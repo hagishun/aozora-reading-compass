@@ -22,29 +22,32 @@ flowchart LR
 - [x] handbook: llm-grounding / working-across-multiple-repos / free-tier-first
 - [x] [`docs/architecture.md`](architecture.md)
 
-## Phase 1: 静的MVP（LLM無し）
+## Phase 1: 静的MVP（LLM無し）— 完了
 
 「state 選ぶ → works.yml から1冊 → 青空文庫リンク」だけが動く。
 
-- Astro プロジェクトを scaffold（既存リポジトリに統合）
-- works.yml を読み込んで型付け
-- トップページ: state 4択 (recovery / thinking / stimulus / quiet)
-- 結果ページ: state一致からランダム1件 + 青空文庫へのリンク
-- Cloudflare Pages にデプロイ（mainブランチ自動デプロイ）
-- 最低限のスタイル（読書テーマに合う静かなトーン）
+- [x] Astro プロジェクトを scaffold（ルート直置き、Cloudflare adapter）
+- [x] works.yml を読み込んで型付け (`src/lib/works.ts` + `src/types/work.ts`)
+- [x] トップページ: state 4択 (recovery / thinking / stimulus / quiet)
+- [x] 結果ページ (`/pick?state=...`): state一致からランダム1件 + 青空文庫へのリンク
+- [x] BaseLayout + global.css にスタイル共通化（CSS変数でダークモード対応）
+- [ ] Cloudflare Pages にデプロイ（mainブランチ自動デプロイ）← **次の作業**
+- [ ] 最低限のスタイル仕上げ（必要に応じて）
 
 **完了基準**: 公開URLで触れる。LLMはまだ呼ばない。
+
+**現状**: ローカル (`npm run dev`) で動作確認済み。コミット `246e32c` まで push 済み。
+残りはデプロイのみ。
 
 ## Phase 2: LLM接続（Workers + Workers AI）
 
 ADR-0002 の本丸。
 
-- `functions/api/pick.ts`（または Workers ルート）を実装
-- works.yml を Worker に同梱、prompt 組み立て
+- 既存の `src/pages/pick.astro` を改修、または `/api/pick.ts` を新設
+- works.yml は既にビルド時バンドル済み (`?raw` import)、prompt 組み立てを追加
 - Workers AI で `@cf/meta/llama-3.1-8b-instruct` 呼び出し
 - 応答を works.yml に照合、リスト外なら最大2回retry
-- 全失敗時はルールベースfallback、`fallback: true` を返す
-- フロントから `/api/pick` を叩いて表示
+- 全失敗時はルールベースfallback（= 現在の Phase 1 ロジック）、`fallback: true` を返す
 - `reason`（LLM生成の3行コメント）を結果ページに表示
 
 **完了基準**: 「state を選ぶたびに違う作品 + AI生成の理由」が出る。
@@ -91,3 +94,4 @@ ADR-0002 の本丸。
 ## 改訂履歴
 
 - 2026-05-05: 初版
+- 2026-05-05: Phase 1 完了状態を反映（ローカル実装まで完了、デプロイのみ残）
