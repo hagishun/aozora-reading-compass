@@ -1,5 +1,4 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import worksRaw from '../../data/works.yml?raw';
 import yaml from 'js-yaml';
 import type { Work } from '../types/work.js';
 
@@ -7,13 +6,26 @@ interface WorksFile {
   works: Work[];
 }
 
+function isWorksFile(value: unknown): value is WorksFile {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'works' in value &&
+    Array.isArray((value as { works: unknown }).works)
+  );
+}
+
 /**
- * Reads data/works.yml and returns the list of works.
- * Intended for build-time use in Astro pages (getStaticPaths, etc.).
+ * Parses data/works.yml and returns the list of works.
+ * The YAML file is bundled at build time via Vite's `?raw` import,
+ * so this function is safe to call from Cloudflare Workers (no filesystem access).
  */
 export function loadWorks(): Work[] {
-  const filePath = join(process.cwd(), 'data', 'works.yml');
-  const raw = readFileSync(filePath, 'utf-8');
-  const parsed = yaml.load(raw) as WorksFile;
+  const parsed = yaml.load(worksRaw);
+  if (!isWorksFile(parsed)) {
+    throw new Error(
+      'data/works.yml is malformed: expected a top-level "works" array.'
+    );
+  }
   return parsed.works;
 }
