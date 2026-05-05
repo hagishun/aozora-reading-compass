@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-05-05
-- 関連handbook原則: なし（このADR起草時点で handbook に該当原則はない。後日 `free-tier-first` 等として抽出する候補）
+- 関連handbook原則: [free-tier-first](https://github.com/hagishun/hagishun-handbook/blob/main/principles/free-tier-first.md)
 
 ## Context
 
